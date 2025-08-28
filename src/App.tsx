@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import Layout from './components/common/Layout';
+import PasswordProtected from './components/common/PasswordProtected';
 import ExecutiveDashboard from './components/dashboard/ExecutiveDashboard';
 import AIEcosystemMap from './components/ai-modules/AIEcosystemMap';
 import RouteOptimization from './components/maps/RouteOptimization';
@@ -26,7 +27,15 @@ function App() {
       case 'operations':
         return <OperationsControlTower />;
       case 'methodology':
-        return <MethodologyViewer />;
+        return (
+          <PasswordProtected 
+            requiredPassword="zeit2024"
+            title="Acceso Restringido - Metodología"
+            description="Esta sección contiene información confidencial de implementación y estrategias comerciales"
+          >
+            <MethodologyViewer />
+          </PasswordProtected>
+        );
       default:
         return <ExecutiveDashboard />;
     }
