@@ -1,0 +1,86 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    font-family: Inter, system-ui, sans-serif;
+    line-height: 1.5;
+    font-weight: 400;
+    
+    color-scheme: light;
+    color: #213547;
+    background-color: #f8fafc;
+    
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html,
+  body {
+    height: 100%;
+    width: 100%;
+  }
+
+  body {
+    margin: 0;
+    min-width: 320px;
+    min-height: 100vh;
+    background: linear-gradient(to bottom, #f8fafc, #e2e8f0);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: 600;
+    line-height: 1.2;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+  }
+
+  h2 {
+    font-size: 2rem;
+  }
+
+  h3 {
+    font-size: 1.75rem;
+  }
+
+  h4 {
+    font-size: 1.5rem;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-primary text-white px-6 py-3 rounded-lg font-medium transition-all duration-200 hover:bg-blue-900 active:scale-95;
+  }
+
+  .btn-secondary {
+    @apply bg-secondary text-white px-6 py-3 rounded-lg font-medium transition-all duration-200 hover:bg-gray-700 active:scale-95;
+  }
+
+  .card {
+    @apply bg-white rounded-lg shadow-sm p-6 transition-shadow duration-200 hover:shadow-md;
+  }
+
+  .metric-card {
+    @apply bg-white rounded-lg shadow-sm p-4 border border-gray-100;
+  }
+
+  .section-title {
+    @apply text-2xl font-semibold text-gray-800 mb-4;
+  }
+
+  .text-muted {
+    @apply text-gray-600;
+  }
+}
