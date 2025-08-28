@@ -32,30 +32,35 @@ const MetricCard: React.FC<MetricCardProps> = ({ metric }) => {
   };
 
   return (
-    <div className="metric-card hover:shadow-lg transition-shadow duration-200">
-      <div className="flex justify-between items-start mb-4">
-        <h3 className="text-sm font-medium text-gray-600">{metric.title}</h3>
-        {getTrendIcon()}
+    <div className="metric-card hover:shadow-lg transition-shadow duration-200 p-4 lg:p-6">
+      <div className="flex justify-between items-start mb-3 lg:mb-4">
+        <h3 className="text-xs lg:text-sm font-medium text-gray-600 leading-tight">{metric.title}</h3>
+        <div className="ml-2 flex-shrink-0">
+          {getTrendIcon()}
+        </div>
       </div>
       
-      <div className="flex items-baseline space-x-2">
-        <span className={`text-3xl font-bold ${getStatusColor()}`}>
+      <div className="flex items-baseline space-x-1 lg:space-x-2 mb-2">
+        <span className={`text-xl lg:text-3xl font-bold leading-none ${getStatusColor()}`}>
           {metric.value}
         </span>
         {metric.unit && (
-          <span className="text-sm text-gray-500">{metric.unit}</span>
+          <span className="text-xs lg:text-sm text-gray-500 leading-none">{metric.unit}</span>
         )}
       </div>
       
       {metric.trendValue !== undefined && (
-        <div className="mt-2">
-          <span className={`text-sm font-medium ${
+        <div className="mt-1 lg:mt-2">
+          <span className={`text-xs lg:text-sm font-medium ${
             metric.trend === 'up' ? 'text-success' : 
             metric.trend === 'down' ? 'text-warning' : 'text-gray-500'
           }`}>
             {metric.trend === 'up' ? '+' : ''}{metric.trendValue}%
           </span>
-          <span className="text-xs text-gray-500 ml-1">vs mes anterior</span>
+          <span className="text-xs text-gray-500 ml-1">
+            <span className="hidden sm:inline">vs mes anterior</span>
+            <span className="sm:hidden">vs prev.</span>
+          </span>
         </div>
       )}
     </div>

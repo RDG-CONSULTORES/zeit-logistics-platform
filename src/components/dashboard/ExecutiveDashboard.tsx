@@ -43,20 +43,20 @@ const ExecutiveDashboard: React.FC = () => {
   };
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4 lg:space-y-6">
       {/* KPI Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-4">
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 lg:gap-4">
         {kpiMetrics.map((metric) => (
           <MetricCard key={metric.id} metric={metric} />
         ))}
       </div>
 
       {/* Charts Row */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-6">
         {/* Revenue Chart */}
         <div className="card">
-          <h3 className="text-lg font-semibold text-gray-800 mb-4">Ingresos vs Costos Operativos</h3>
-          <ResponsiveContainer width="100%" height={300}>
+          <h3 className="text-base lg:text-lg font-semibold text-gray-800 mb-3 lg:mb-4">Ingresos vs Costos Operativos</h3>
+          <ResponsiveContainer width="100%" height={250}>
             <LineChart data={revenueData}>
               <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
               <XAxis dataKey="month" stroke="#6b7280" />
@@ -71,8 +71,8 @@ const ExecutiveDashboard: React.FC = () => {
 
         {/* Fleet Utilization */}
         <div className="card">
-          <h3 className="text-lg font-semibold text-gray-800 mb-4">Utilización de Flota</h3>
-          <ResponsiveContainer width="100%" height={300}>
+          <h3 className="text-base lg:text-lg font-semibold text-gray-800 mb-3 lg:mb-4">Utilización de Flota</h3>
+          <ResponsiveContainer width="100%" height={250}>
             <PieChart>
               <Pie
                 data={fleetUtilization}
